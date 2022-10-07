@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "f207ec5c-cb7d-4ecc-a076-fa19912c2f00"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -8,6 +11,9 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -104,7 +110,5 @@
       }
     }
   },
-  "cli": {
-    "analytics": "4d9c2b35-c9ee-45bd-af15-49957b52633e"
-  }
+  "defaultProject": "movies-app"
 }
