@@ -3,7 +3,6 @@ import { Genre } from './genre';
 
 export interface TvShow {
   adult: boolean;
-  title: string;
   backdrop_path: string;
   genre_ids: number[];
   id: number;
@@ -20,6 +19,7 @@ export interface TvShow {
   revenue: number;
   runtime: number;
   status: string;
+  title: string;
   genres: Genre[];
 }
 

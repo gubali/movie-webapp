@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1 Get array of name of given array
+
+      const users = [
+        { id: 1, name: 'jack', isActive: true, age: 20 },
+        { id: 2, name: 'jack2', isActive: false, age: 30 },
+        { id: 3, name: 'jack3', isActive: true, age: 39 },
+        { id: 4, name: 'jack4', isActive: false, age: 56 }
+      ];
+
+      //method 1
+      const name = [];
+      const _forEach = [];
+      const _map = [];
+      for (let i = 0; i < users.length; i++) {
+        name.push(users[i].name);
+      }
+      document.write('First method to get name array :: ', '  ' + name);
+
+      //method 2
+      users.forEach((elem) => {
+        _forEach.push(elem.name);
+      });
+      console.log('With for each', _forEach);
+
+      //method 3
+      const ab = users.map((elem) => {
+        return _map.push(elem.name);
+      });
+      console.log('Map method', ab);
+
+      // get only active user
+      const activeUser = users.filter((user) => user.isActive).map((elem) => elem.name);
+      console.log('Get active user only', activeUser);
+
+      //get user name which age is >=30 Years
+      const userByAge = users.filter((user) => user.age >= 30).map((elem) => elem.name);
+      console.log('User name which age has >=30', userByAge);
+
+      console.log(userByAge.sort((a, b) => (a.age < b.age ? -1 : 1)));
+
+      // Hoisting
+      var foo;
+      console.log(foo);
+      foo = 1;
+
+      // clouser
+      function outerFunction() {
+        let as = 20;
+
+        function innerFunction() {
+          console.log(as);
+        }
+        innerFunction();
+      }
+
+      let output = outerFunction();
+      console.log(output);
+
+      //currying
+      function multi(a) {
+        return function (b) {
+          return a * b;
+        };
+      }
+      console.log(multi(2)(2));
+      // remove duplivcar
+      let values = [1, 2, 33, 4, 4, 5, 6];
+      let uniquesValues = (values) => {
+        return [...new Set(values)];
+      };
+      console.log('uniques values', uniquesValues(values));
+
+      //sort
+      let sortArr = [2, 1, 3, 4, 0];
+      sortArr.sort((a, b) => {
+        return a < b ? -1 : 1;
+      });
+      console.log('sort', sortArr);
+
+      //range function start & end
+      const range = (start, end) => {
+        return [...Array(end).keys()].map((el) => el + start);
+      };
+      console.log('Range date', range(1, 5));
+
+      // write a program accept any number of argument and return result.
+
+     const sum =  (...arg) => {
+        return arg.reduce((prev, last) => {
+          return prev + last;
+        });
+      };
+      console.log("function with sum", sum(10,20,30,40));
+    </script>
+  </head>
+  <body></body>
+</html>

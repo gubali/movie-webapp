@@ -7,7 +7,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MoviesComponent } from './pages/movies/movies.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SliderComponent } from './components/slider/slider.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemsBannerComponent } from './components/items-banner/items-banner.component';
@@ -22,6 +22,8 @@ import { GenresComponent } from './pages/genres/genres.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 import { TvShowComponent } from './pages/tvshow/tvshow.component';
+import { HeadersInterceptor } from './headers.interceptor';
+import { Comp1Component } from './life-cycle-hook/comp1/comp1.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { TvShowComponent } from './pages/tvshow/tvshow.component';
     VideoEmbedComponent,
     GenresComponent,
     TvShowsComponent,
-    TvShowComponent
+    TvShowComponent,
+    Comp1Component
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,14 @@ import { TvShowComponent } from './pages/tvshow/tvshow.component';
     CarouselModule,
     InputTextModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:HeadersInterceptor,
+      multi:true
+
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

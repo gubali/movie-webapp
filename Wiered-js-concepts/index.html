@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //ab();
+      //   console.log(a);
+      //   var a = 'Weired js';
+      //   function ab() {
+      //     console.log('Called ab');
+      //   }
+
+      //   function a1() {
+      //     a2();
+      //     return 2 * 2;
+      //   }
+      //   function a2() {
+      //     console.log('Invoking function');
+      //   }
+      //   a2();
+      function b() {
+        var myvar;
+      }
+      function a() {
+        var myvar = 2;
+        b();
+      }
+      var myvar = 1;
+      a();
+
+      //scope chain
+      console.log('**************scope chain******************');
+      var myvar1 = 1;
+      b2();
+      function a1() {
+        console.log('dd', myvar1);
+      }
+      function b2() {
+        var myvar1 = 2;
+        a1();
+      }
+
+      //car 24
+
+      // function car24() {
+      //   console.log('car 24', b);
+      //   // var a = 20;
+      //   const b = 30;
+      //   // let c = 40;
+      // }
+      // car24();
+
+      //hoistinf roadside coder
+      // let a11 = 3;
+      // function multiply(x) {
+      //   return x * 10;
+      // }
+      // let b = multiply(a11);
+      // consoloe.log('Road sider', b);
+
+      //function curring
+      function add(a) {
+        return function (b) {
+          return function () {
+            return a + b;
+          };
+        };
+      }
+      console.log('Function currying', add(2)(3)());
+    </script>
+  </head>
+  <body></body>
+</html>
